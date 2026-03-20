@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz sur Gninoue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div id="quiz"></div>
+  <button id="valider">Valider</button>
+  <div id="resultat"></div>
+  <div id="corrections"></div>
+
+  <script>
+    // Alerte au démarrage
+    alert("Ceci est un Quiz Madame Gninoue.\nChaque bonne réponse fait 10 points, une mauvaise 0 point.\nProuve que tu connais Gninoue !");
+
+    const questions = [
+      { q: "Quel partie je kiffe sur une fille ?", r: "Les seins" },
+      { q: "qu'estce qu'il aime manger", r: "lui meme le sais pas" },
+      { q: "Quel système d’exploitation j’utilise ?", r: "Ubuntu" },
+      { q: "Quel langage j’aime pour le web ?", r: "JavaScript" },
+      { q: "Quel style de jeu m’intéresse ?", r: "2D aventure" },
+      { q: "Quel metier veux exercé Gninoue ?", r: "Devellopeur backend"}
+    ];
+
+    const quizDiv = document.getElementById("quiz");
+    const resultatDiv = document.getElementById("resultat");
+    const correctionsDiv = document.getElementById("corrections");
+
+    // Style global pensé pour mobile
+    document.body.style.margin = "0";
+    document.body.style.padding = "20px";
+    document.body.style.fontFamily = "Arial, sans-serif";
+    document.body.style.backgroundColor = "#fdf2f2";
+
+    quizDiv.style.maxWidth = "100%";
+    quizDiv.style.fontSize = "16px";
+
+    resultatDiv.style.fontSize = "20px";
+    resultatDiv.style.color = "crimson";
+    resultatDiv.style.marginTop = "20px";
+    resultatDiv.style.textAlign = "center";
+
+    correctionsDiv.style.marginTop = "20px";
+    correctionsDiv.style.fontSize = "16px";
+    correctionsDiv.style.color = "darkblue";
+
+    // Génération des questions
+    questions.forEach((item, index) => {
+      const label = document.createElement("label");
+      label.textContent = (index+1) + ". " + item.q;
+      label.style.display = "block";
+      label.style.marginTop = "15px";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = "q" + index;
+      input.style.width = "95%";
+      input.style.padding = "8px";
+      input.style.marginTop = "5px";
+      input.style.borderRadius = "5px";
+      input.style.border = "1px solid #ccc";
+
+      quizDiv.appendChild(label);
+      quizDiv.appendChild(input);
+    });
+
+    // Vérification des réponses
+    document.getElementById("valider").onclick = () => {
+      let score = 0;
+      correctionsDiv.innerHTML = ""; // reset avant affichage
+
+      questions.forEach((item, index) => {
+        const reponse = document.getElementById("q" + index).value.trim();
+        if (reponse.toLowerCase() === item.r.toLowerCase()) {
+          score += 10;
+        } else {
+          // Affiche la correction si la réponse est fausse
+          const correction = document.createElement("p");
+          correction.textContent = "❌ Question " + (index+1) + " : La bonne réponse est \"" + item.r + "\"";
+          correctionsDiv.appendChild(correction);
+        }
+      });
+
+      resultatDiv.textContent = "Votre score final : " + score + " / " + (questions.length * 10);
+
+      if(score === questions.length * 10){
+        correctionsDiv.textContent = "🎉 Bravo ! Toutes les réponses sont correctes !";
+      }
+    };
+
+    // Style du bouton
+    const bouton = document.getElementById("valider");
+    bouton.style.marginTop = "20px";
+    bouton.style.width = "100%";
+    bouton.style.padding = "12px";
+    bouton.style.backgroundColor = "crimson";
+    bouton.style.color = "white";
+    bouton.style.border = "none";
+    bouton.style.borderRadius = "5px";
+    bouton.style.cursor = "pointer";
+    bouton.style.fontSize = "18px";
+    bouton.style.fontWeight = "bold";
+  </script>
+</body>
+</html>

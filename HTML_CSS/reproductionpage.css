@@ -1,0 +1,20 @@
+
+header{
+    text-align: center;
+    border: 3px;
+}
+
+body{
+    background:linear-gradient(135deg,#f4ed87,#fff)
+}
+
+.table{
+    display: flex;
+}
+.image{
+    width: 60%;
+    height: 60%;
+}
+.tableaucolor{
+    background-color: tomato;
+}

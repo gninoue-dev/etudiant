@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 4 : Formulaire et calcul</title>
+</head>
+<body>
+  <h2>Exercice 4 : formulaire et calcul en HTML</h2>
+
+  <form oninput="result.value=parseInt(a.value)+parseInt(b.value);
+        ttc.value=(parseInt(a.value)+parseInt(b.value))*1.185">
+        <label>Montant 1 : <input type="number" id="a" value="7"></label><br><br>
+        <label>Montant 2 : <input type="number" id="b" value="9"></label><br><br>
+        <p>= <output name="result">16</output> CFA HT donc :
+        <output name="ttc">18.96</output> CFA TTC
+        </p>
+  </form>
+  
+  <p>Intervalle [10,300] :</p>
+  <input type="range" id="range" min="10" max="300" step="5"
+         onchange="chosen.innerHTML=this.value">
+  <p>Vous avez choisi : <span id="chosen">10</span></p>
+</body>
+</html>

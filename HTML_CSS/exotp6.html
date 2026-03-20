@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>EX_6 DU TP</title>
+</head>
+<body>
+  <form action="#" method="post" enctype="multipart/form-data">
+    
+    <fieldset>
+      <legend>Vos coordonnées</legend>
+      
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom"><br><br>
+      
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom"><br><br>
+      
+      <label for="naissance">Date de naissance :</label>
+      <input type="date" id="naissance" name="naissance"><br><br>
+      
+      <label for="mail">Mail :</label>
+      <input type="email" id="mail" name="mail"><br><br>
+      
+      <label for="site">Votre site :</label>
+      <input type="url" id="site" name="site" placeholder="http://www."><br><br>
+      
+      <label for="code">Code :</label>
+      <input type="text" id="code" name="code"><br><br>
+      
+      Sexe :
+      <input type="radio" id="homme" name="sexe" value="homme">
+      <label for="homme">Homme</label>
+      <input type="radio" id="femme" name="sexe" value="femme">
+      <label for="femme">Femme</label><br><br>
+      
+      <label for="pays">Votre pays :</label>
+      <select id="pays" name="pays">
+        <option value="">--Sélectionnez--</option>
+        <option value="france">France</option>
+        <option value="coteivoire">Côte d’Ivoire</option>
+        <option value="canada">Canada</option>
+        <option value="autre">Autre</option>
+      </select>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Vos goûts</legend>
+      
+      <input type="checkbox" id="pommes" name="gouts" value="pommes">
+      <label for="pommes">Pommes</label><br>
+      
+      <input type="checkbox" id="poires" name="gouts" value="poires">
+      <label for="poires">Poires</label><br>
+      
+      <input type="checkbox" id="scoubidous" name="gouts" value="scoubidous">
+      <label for="scoubidous">Scoubidous</label><br><br>
+      
+      <label for="details">Décrivez-nous vos goûts en détail :</label><br>
+      <textarea id="details" name="details" rows="5" cols="40" placeholder="Exprimez-vous ici..."></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Envoyez-nous votre photo</legend>
+      
+      <input type="file" name="photo"><br><br>
+      
+      <input type="submit" value="Envoyer">
+      <input type="reset" value="Effacer toutes les données">
+    </fieldset>
+    
+  </form>
+</body>
+</html>
