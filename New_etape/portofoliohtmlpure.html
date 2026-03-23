@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Portfolio HTML de Jean-Marc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio de Jean-Marc</title>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Portfolio de Jean-Marc</h1>
+    <nav>
+      <a href="#accueil">Accueil</a> |
+      <a href="#projets">Projets</a> |
+      <a href="#competences">Compétences</a> |
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Accueil -->
+  <section id="accueil">
+    <h2>Bienvenue</h2>
+    <p>Je suis étudiant en Génie Logiciel et passionné par le web.</p>
+  </section>
+
+  <!-- Projets -->
+  <section id="projets">
+    <h2>Mes projets</h2>
+    <article>
+      <h3>Projet 1 : Site étudiant</h3>
+      <p>Un site réalisé en HTML et CSS.</p>
+      <img src="projet1.png" alt="Capture du projet étudiant">
+    </article>
+    <article>
+      <h3>Projet 2 : Portfolio</h3>
+      <p>Un site 100% HTML pour présenter mes travaux.</p>
+      <img src="projet2.png" alt="Capture du projet portfolio">
+    </article>
+  </section>
+
+  <!-- Tableau de compétences -->
+  <section id="competences">
+    <h2>Mes compétences</h2>
+    <table border="1">
+      <tr>
+        <th>Technologie</th>
+        <th>Niveau</th>
+        <th>Expérience</th>
+      </tr>
+      <tr>
+        <td>HTML</td>
+        <td>Avancé</td>
+        <td>2 ans</td>
+      </tr>
+      <tr>
+        <td>CSS</td>
+        <td>Intermédiaire</td>
+        <td>1 an</td>
+      </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td>Débutant</td>
+        <td>En cours</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Formulaire de contact -->
+  <section id="contact">
+    <h2>Contactez-moi</h2>
+    <form action="traitement.php" method="post">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" required><br><br>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message :</label><br>
+      <textarea id="message" name="message" rows="5" cols="30"></textarea><br><br>
+
+      <input type="submit" value="Envoyer">
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Jean-Marc Gninoue</p>
+  </footer>
+</body>
+</html>
