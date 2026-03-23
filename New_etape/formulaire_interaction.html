@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Exercice pratique
+👉 Crée un formulaire avec :
+
+Un champ texte pour le nom
+
+Un champ email obligatoire
+
+Un menu déroulant pour choisir un pays
+
+Deux boutons radio pour le sexe
+
+Une case à cocher pour accepter les conditions
+
+Un bouton “Envoyer”
+    -->
+
+    <form method="#">
+        <label for="Nom">Nom:</label>
+        <input type="text" name="nom">
+        <br><br>
+        <label for ="email">Email:</label>
+        <input type="email" name="Emai" placeholder="devgninoue@gmail.com" required>
+        <br><br>
+        <label for="pays"></label>
+        <select name="pays">
+            <option value="france">France</option>
+            <option value="espagne">Espagne</option>
+            <option value="portugale">Portugale</option>
+        </select>
+        <br><br>
+        <label for="sexe">Sexe:</label>
+        <input type="radio" name="homme" value="H" >Homme
+        <input type="radio" name="femme" value="F">Femme
+        <br><br>
+        <input type="checkbox" name="accepté" value="oui">j'accepte les conditions
+        <br><br>
+        <input type="submit" value="envoyer"> 
+    </form>
+</body>
+</html>
