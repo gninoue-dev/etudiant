@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed); /* dégradé bleu */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff0080, #7928ca, #2afeb7); 
+    background-size: 400% 400%; 
+    animation: neonGradient 12s ease infinite;
+}
+@keyframes neonGradient { 
+    0% { background-position: 0% 50%; } 
+    50% { background-position: 100% 50%; } 
+    100% { background-position: 0% 50%; } 
+} 
+.barre-recherche input:focus {
+    box-shadow: 0 0 8px #FF9800;
+    outline: none;
+    width: 350px;
+}
+
+header{
+    background-color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+.table-films{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.carte-film{
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column; /* texte puis image */
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.carte-film:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.pied-page {
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 30px;
+    background: #1c1c1c; /* fond sombre élégant */
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.inscription-connexion {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.inscription-connexion button {
+    background: #FF9800;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    margin: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.inscription-connexion button:hover {
+    background: #e68900;
+    transform: translateY(-3px);
+}
+
+/* Style général du header */
+.en-tete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #1c1c1c;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Logo */
+.logo h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff4c29; /* couleur accent (orange/rouge moderne) */
+    margin: 0;
+}
+
+/* Barre de recherche */
+.barre-recherche {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 25px;
+    padding: 5px 15px;
+    gap: 10px;
+
+}
+
+.barre-recherche input {
+    border: none;
+    background: transparent;
+    color: #fff;
+    padding: 8px;
+    outline: none;
+    width: 200px;
+    font-size: 14px;
+}
+
+.barre-recherche button {
+    border: none;
+    background: none;
+    color: #ff4c29;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.barre-recherche button:hover {
+    color: #fff;
+    transform: scale(1.1);
+    background: #e68900;
+}
+
+/* Navigation */
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #ff4c29;
+}
+
+/* Responsivité header */
+@media (max-width: 768px) {
+    .en-tete {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .barre-recherche input {
+        width: 100%;
+    }
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
