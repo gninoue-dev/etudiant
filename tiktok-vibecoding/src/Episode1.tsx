@@ -3,6 +3,7 @@ import { AbsoluteFill, Easing, interpolate, random, spring, useCurrentFrame, use
 import { ThreeCanvas } from "@remotion/three";
 import { useThree } from "@react-three/fiber";
 import { Vibe } from "./Vibe";
+import { AIBot } from "./AIBot";
 
 // ---------- Chronologie (30 fps) ----------
 const S = {
@@ -206,6 +207,19 @@ const World: React.FC<{ frame: number }> = ({ frame: f }) => {
       )}
       {f < S.push[1] && f >= S.push[0] ? null : null}
 
+      {/* Pixel, l'IA : au bureau (hook, code, boucle) et à côté de Vibe pendant la facture */}
+      {(f < S.push[0] || inRange(f, S.bill) || f >= S.loop[0]) && (() => {
+        const bill = inRange(f, S.bill);
+        const oops = bill || inRange(f, S.hook);
+        const appear = spring({ frame: f - (bill ? 600 : 0), fps: 30, config: { damping: 12 } });
+        const pos: [number, number, number] = bill ? [0.95, 0.1, 2.2] : [0.95, 0.7, 1.3];
+        return (
+          <group position={pos} scale={(bill ? 0.42 : 0.5) * appear} rotation={[0, -0.35, 0]}>
+            <AIBot t={f} mood={oops ? "oops" : "happy"} y={1.6} />
+          </group>
+        );
+      })()}
+
       {/* Vibe */}
       {(f < S.push[0] || inRange(f, S.bill) || inRange(f, S.safe) || f >= S.loop[0]) && (
         <group position={vibePos} rotation={[0, faceCam ? 0 : Math.PI, 0]}>
@@ -328,6 +342,19 @@ const Counter: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
+const Bubble: React.FC<{ frame: number }> = ({ frame }) => {
+  const a = inRange(frame, [105, 205] as const);
+  const b = inRange(frame, [905, 960] as const);
+  if (!a && !b) return null;
+  const start = a ? 105 : 905;
+  const pop = spring({ frame: frame - start, fps: 30, config: { damping: 11 } });
+  return (
+    <div style={{ position: "absolute", top: 740, right: 90, maxWidth: 400, padding: "18px 28px", background: "#fff", color: "#111", border: "6px solid #000", borderRadius: 32, fontFamily: "Arial, sans-serif", fontWeight: 900, fontSize: 46, textAlign: "center", transform: `scale(${pop})`, transformOrigin: "bottom right" }}>
+      {a ? "Pas de souci, je gère !" : "Je range ça au coffre !"}
+    </div>
+  );
+};
+
 const Badge: React.FC<{ frame: number }> = ({ frame }) => {
   if (!(inRange(frame, S.push) || inRange(frame, S.bots))) return null;
   return (
@@ -348,6 +375,7 @@ export const Episode1: React.FC = () => {
       <Caption frame={frame} />
       <Counter frame={frame} />
       <Badge frame={frame} />
+      <Bubble frame={frame} />
     </AbsoluteFill>
   );
 };
