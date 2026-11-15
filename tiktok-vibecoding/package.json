@@ -1,0 +1,22 @@
+{
+  "name": "tiktok-vibecoding",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "still": "remotion still",
+    "render": "remotion render"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^8.15.19",
+    "@remotion/cli": "^4.0.543",
+    "@remotion/three": "^4.0.543",
+    "@types/react": "^18.3.31",
+    "@types/three": "^0.160.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.543",
+    "three": "^0.160.0",
+    "typescript": "^7.0.2"
+  }
+}
