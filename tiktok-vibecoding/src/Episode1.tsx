@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Easing, interpolate, random, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Easing, interpolate, random, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import { useThree } from "@react-three/fiber";
 import { Vibe } from "./Vibe";
@@ -364,6 +364,17 @@ const Badge: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
+const VOIX: { file: string; from: number }[] = [
+  { file: "n1", from: 0 },
+  { file: "p1", from: 105 },
+  { file: "n2", from: 159 },
+  { file: "n3", from: 240 },
+  { file: "n4", from: 420 },
+  { file: "n5", from: 600 },
+  { file: "n6", from: 780 },
+  { file: "p2", from: 912 },
+];
+
 export const Episode1: React.FC = () => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
@@ -376,6 +387,11 @@ export const Episode1: React.FC = () => {
       <Counter frame={frame} />
       <Badge frame={frame} />
       <Bubble frame={frame} />
+      {VOIX.map((v) => (
+        <Sequence key={v.file} from={v.from}>
+          <Audio src={staticFile(`voix/${v.file}.mp3`)} />
+        </Sequence>
+      ))}
     </AbsoluteFill>
   );
 };
